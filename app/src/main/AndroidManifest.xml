@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.udacity.gradle.builditbigger">
+
+    <!-- Include required permissions to determine if network is available -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- If using the Genymotion emulator you must set android:hardwareAccelerated="false" -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- for 'fortune' output, if it is installed -->
+    <application
+        android:name=".BuildItBiggerApplication"
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/mybackupscheme"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- setup deep linking #1 -->
+            <intent-filter android:label="@string/filter_title_viewjoke">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://harlie.com/joke"
+                     test with: $ adb shell am start -a android.intent.action.VIEW -d "http://harlie.com/joke?joke='very funny.'" com.udacity.gradle.builditbigger.paid
+                       or with: $ adb shell am start -a android.intent.action.VIEW -d "http://harlie.com/joke?joke='very funny.'" com.udacity.gradle.builditbigger.free
+                 -->
+                <data
+                    android:scheme="http"
+                    android:host="harlie.com"
+                    android:pathPrefix="/joke"
+                    android:pathPattern=".*" />
+            </intent-filter>
+
+            <!-- setup deep linking #2 -->
+            <intent-filter android:label="@string/filter_title_viewjoke">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "harlie://joke"
+                     test with: $ adb shell am start -a android.intent.action.VIEW -d "harlie://joke?joke='very funny.'" com.udacity.gradle.builditbigger.paid
+                       or with: $ adb shell am start -a android.intent.action.VIEW -d "harlie://joke?joke='very funny.'" com.udacity.gradle.builditbigger.free
+                 -->
+                <data
+                    android:scheme="harlie"
+                    android:host="joke"
+                    android:pathPattern=".*" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".jokeandroidlibrary.JokeActivity"
+            android:label="@string/title_activity_joke"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="com.udacity.gradle.builditbigger.jokeandroidlibrary.JokeActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!--
+          For Google Analytics Tracking
+          register AnalyticsReceiver and AnalyticsService to support background dispatching on non-Google Play devices
+        -->
+        <receiver
+            android:name="com.google.android.gms.analytics.AnalyticsReceiver"
+            android:enabled="true"
+            tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.analytics.AnalyticsService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!--
+          For Google Analytics Tracking
+          register CampaignTrackingReceiver and CampaignTrackingService to enable installation campaign reporting
+        -->
+        <receiver
+            android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
+            android:exported="true"
+            tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" />
+
+    </application>
+
+</manifest>

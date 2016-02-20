@@ -1,0 +1,58 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.0.0-beta5'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task testEverything {
+    dependsOn = [ "startJokeBackend", "runAllAndroidTests", "stopJokeBackend" ]
+}
+
+task startJokeBackend {
+    dependsOn ":jokeBackend:appengineRun"
+    //from: https://stackoverflow.com/questions/31434928/android-gradle-task-google-appengine
+    project(":jokeBackend").afterEvaluate { jokeBackend ->
+        jokeBackend.extensions.appengine.daemon = true
+    }
+    doLast {
+        println "*** The jokeBackend should be running. ***"
+    }
+}
+
+task runAllAndroidTests {
+    dependsOn = [ "startJokeBackend", "libjokeprovider:check", "jokeandroidlibrary:check", ":app:connectedCheck" ]
+    shouldRunAfter "startJokeBackend"
+    doLast {
+        println "*** Testing is complete. ***"
+    }
+}
+
+task stopJokeBackend {
+    shouldRunAfter "runAllAndroidTests"
+    finalizedBy ":jokeBackend:appengineStop"
+    doLast {
+        println "STOP: the jokeBackend should be stopped."
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+task wrapper(type: Wrapper) {
+   gradleVersion = '2.11'
+}

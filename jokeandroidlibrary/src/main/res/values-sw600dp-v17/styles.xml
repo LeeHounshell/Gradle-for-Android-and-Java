@@ -1,0 +1,19 @@
+<resources>
+
+    <style name="joke_style" >
+        <item name="android:textSize">30sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:paddingEnd">60dp</item>
+        <item name="android:paddingLeft">60dp</item>
+        <item name="android:paddingRight">60dp</item>
+        <item name="android:paddingStart">60dp</item>
+    </style>
+
+    <style name="spacer_style" >
+        <item name="android:layout_width">25dp</item>
+        <item name="android:layout_height">60dp</item>
+    </style>
+
+</resources>

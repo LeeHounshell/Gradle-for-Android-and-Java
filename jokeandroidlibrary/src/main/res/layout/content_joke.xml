@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/joke_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/joke_layout_style"
+    tools:context="com.udacity.gradle.builditbigger.jokeandroidlibrary.JokeActivity"
+    android:orientation="vertical"
+    tools:showIn="@layout/activity_joke">
+
+    <Space
+        android:id="@+id/spacer"
+        style="@style/spacer_style2" />
+
+    <TextView
+        android:id="@+id/joke_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spacer"
+        style="@style/joke_style" />
+
+    <Space
+        android:id="@+id/spacer2"
+        android:layout_below="@+id/joke_text"
+        style="@style/spacer_style2" />
+
+    <Button
+        android:id="@+id/another_joke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spacer2"
+        android:onClick="tellAnotherJoke"
+        style="@style/joke_button_style"
+        android:text="@string/tell_another_joke"
+        android:contentDescription="@string/tell_another_joke"
+        android:visibility="invisible" />
+
+    <Space
+        android:layout_below="@+id/another_joke"
+        style="@style/spacer_style" />
+
+</RelativeLayout>

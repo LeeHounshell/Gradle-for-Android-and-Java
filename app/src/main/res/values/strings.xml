@@ -1,0 +1,31 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- *** NETWORK CONFIGURATION TO ACCESS THE JOKE BACKEND *** -->
+    <string name="joke_api_key">JOKE-API-KEY-WHEN-NEEDED</string>
+
+    <!-- FIXME: USE PROPER PRODUCTION 'RELEASE' VALUES (instead of http://10.0.2.2:8080)
+    <string name="release_joke_server_protocol">https</string>
+    <string name="release_joke_server_host">my-gcm-android-app-backend-project-id.appspot.com</string>
+    <string name="release_joke_server_port">80</string>
+    -->
+
+    <string name="release_joke_server_protocol">http</string>
+    <string name="release_joke_server_host">10.0.2.2</string>
+    <string name="release_joke_server_port">8080</string>
+
+    <string name="debug_joke_server_protocol">http</string>
+    <string name="debug_joke_server_host">10.0.2.2</string>
+    <string name="debug_joke_server_port">8080</string>
+
+    <!-- Joke App Configuration -->
+    <string name="title_activity_joke">Laugh it Up</string>
+    <string name="instructions">Press the button for a delicious joke!</string>
+    <string name="tell_joke">&#160; Tell Joke &#160;</string>
+    <string name="no_network_joke">"I just let my mind wander, and it didn't come back…\nIt appears the same thing happened to your Network Connection."</string>
+    <string name="action_settings">Settings</string>
+    <string name="filter_title_viewjoke">Deep Linked Joke of the Day</string>
+    <string name="pref_firstname">Chuck</string>
+    <string name="pref_lastname">Norris</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="not_on_playstore">The paid version of this app is not available on the Google PlayStore. Try again later.</string>
+    <string name="app_not_found">Not on PlayStore</string>
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Space
+            style="@style/spacer_style" />
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id"
+            android:visibility="invisible" />
+
+        <Space
+            style="@style/spacer_style" />
+
+        <ImageView
+            android:id="@+id/upgrade_to_paid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/upgrade_to_paid"
+            android:scaleType="fitCenter"
+            android:src="@drawable/upgrade_paid"
+            android:visibility="invisible" />
+
+        <Space
+            style="@style/spacer_style" />
+
+    </LinearLayout>
+
+    <Space
+        style="@style/spacer_style2" />
+
+</LinearLayout>
+

@@ -1,0 +1,23 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference android:title="First Name"
+        android:key="firstname"
+        android:capitalize="words"
+        android:inputType="textCapWords"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:selectAllOnFocus="true"
+        android:defaultValue="@string/pref_firstname"
+        android:summary="Please provide a joke first name" />
+
+    <EditTextPreference android:title="Last Name"
+        android:key="lastname"
+        android:capitalize="words"
+        android:inputType="textCapWords"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:selectAllOnFocus="true"
+        android:defaultValue="@string/pref_lastname"
+        android:summary="Please provide a joke last name" />
+
+</PreferenceScreen>
