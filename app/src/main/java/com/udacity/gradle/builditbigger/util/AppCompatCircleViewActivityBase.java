@@ -168,6 +168,7 @@ public class AppCompatCircleViewActivityBase
                         public void run() {
                             Log.v(TAG, "startActivity - JokeActivity.class - from=" + from);
                             Intent intent = new Intent();
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                             intent.putExtra("JOKE", theJoke.getJoke()); // pass the Joke as an Intent extra
                             intent.putExtra("FROM", from); // pass the callback activity classname to enable "TELL ANOTHER JOKE" button in android library
                                                            // if this is not set (default case) then that button will not be visible.

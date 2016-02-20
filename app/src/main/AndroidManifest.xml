@@ -64,17 +64,6 @@
 
         </activity>
 
-        <activity
-            android:name=".jokeandroidlibrary.JokeActivity"
-            android:label="@string/title_activity_joke"
-            android:noHistory="true">
-            <intent-filter>
-                <action android:name="com.udacity.gradle.builditbigger.jokeandroidlibrary.JokeActivity" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
         <!--
           For Google Analytics Tracking
           register AnalyticsReceiver and AnalyticsService to support background dispatching on non-Google Play devices
