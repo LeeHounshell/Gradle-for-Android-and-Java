@@ -10,13 +10,10 @@ And this is the Build-it-Bigger assignment for the Gradle course.
 This project creates a Joke viewing app with multiple 'flavors.' The app makes use of libraries and is integrated with Google Cloud Messaging, AdMob and Google Analytics.
 
 Functionally, this app presents a screen with a button to see a joke (the 'free' version also includes advertising links and screens).  When the button is pressed, a
-
 message is sent to a GCE backend joke-server for request of a joke. The GCE server calls into a Java joke-provider library, which in turn makes an Internet REST request
-
 to the 'Chuck Norris' joke database for a joke.  The received joke is sent back to the app (via GCM) and then sent via Intent extra to the AAR joke library, for Android display.
 
 Of particular note here is the build solution:  This integrates app 'flavors' by introducing a Gradle 'preprocessor' so it becomes possible to use #IFDEF 'flavor' in Java code!
-
 I have a blog entry explaining how the 'preprocessor.gradle' handles both 'flavor' and 'buildType' here: http://harlie.com/?p=38
 
 
