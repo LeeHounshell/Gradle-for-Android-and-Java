@@ -14,7 +14,20 @@ message is sent to a GCE backend joke-server for request of a joke. The GCE serv
 to the 'Chuck Norris' joke database for a joke.  The received joke is sent back to the app (via GCM) and then sent via Intent extra to the AAR joke library, for Android display.
 
 Of particular note here is the build solution:  This integrates app 'flavors' by introducing a Gradle 'preprocessor' so it becomes possible to use #IFDEF 'flavor' in Java code!
+It enables writing code in one source file where sections are automatically commented or uncommented at build time, like this:
+
+        PackageInfo info = application.getPackageManager().getPackageInfo(application.getPackageName(), 0);
+        String version = info.versionName;
+
+        //#IFDEF 'free'
+        assertEquals(version, "1.0-Free");
+        //#ELSE
+        assertEquals(version, "1.0-Paid");
+        //#ENDIF
+
 I have a blog entry explaining how the 'preprocessor.gradle' handles both 'flavor' and 'buildType' here: http://harlie.com/?p=38
+
+This *Build it Bigger* joke serving app was evaluated by a certified Udacity code reviewer and graded "Exceeds Specifications."
 
 
 ## Features
