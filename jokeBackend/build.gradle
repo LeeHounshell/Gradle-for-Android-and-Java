@@ -43,3 +43,7 @@ appengine {
     //from: http://stackoverflow.com/questions/17971954/google-app-engine-with-android-testing-endpoints-on-real-device
     httpAddress = "0.0.0.0"
 }
+
+task wrapper(type: Wrapper) {
+   gradleVersion = '2.12'
+}

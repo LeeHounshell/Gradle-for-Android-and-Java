@@ -46,13 +46,13 @@ public class PerformAsyncJokeTask extends AsyncTask<String, Void, Joke> {
 
         // set the host or IP for the jokeServer
         //#IFDEF 'release'
-        //mJOKE_SERVER_PROTOCOL = mAsyncJokeTaskInterface.getActivity().getResources().getString(R.string.release_joke_server_protocol);
-        //mJOKE_SERVER_HOST = mAsyncJokeTaskInterface.getActivity().getResources().getString(R.string.release_joke_server_host);
-        //mJOKE_SERVER_PORT = mAsyncJokeTaskInterface.getActivity().getResources().getString(R.string.release_joke_server_port);
+        mJOKE_SERVER_PROTOCOL = mAsyncJokeTaskInterface.getActivity().getResources().getString(R.string.release_joke_server_protocol);
+        mJOKE_SERVER_HOST = mAsyncJokeTaskInterface.getActivity().getResources().getString(R.string.release_joke_server_host);
+        mJOKE_SERVER_PORT = mAsyncJokeTaskInterface.getActivity().getResources().getString(R.string.release_joke_server_port);
         //#ELSE
-        mJOKE_SERVER_PROTOCOL = mAsyncJokeTaskInterface.getActivity().getResources().getString(R.string.debug_joke_server_protocol);
-        mJOKE_SERVER_HOST = mAsyncJokeTaskInterface.getActivity().getResources().getString(R.string.debug_joke_server_host);
-        mJOKE_SERVER_PORT = mAsyncJokeTaskInterface.getActivity().getResources().getString(R.string.debug_joke_server_port);
+        //mJOKE_SERVER_PROTOCOL = mAsyncJokeTaskInterface.getActivity().getResources().getString(R.string.debug_joke_server_protocol);
+        //mJOKE_SERVER_HOST = mAsyncJokeTaskInterface.getActivity().getResources().getString(R.string.debug_joke_server_host);
+        //mJOKE_SERVER_PORT = mAsyncJokeTaskInterface.getActivity().getResources().getString(R.string.debug_joke_server_port);
         //#ENDIF
     }
 

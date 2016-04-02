@@ -96,16 +96,16 @@ public class MainActivityFragment extends Fragment {
         //                 CODE IN THIS BLOCK DEPENDS ON BUILD_TYPE 'release' AND IS EDITED BY THE CUSTOM GRADLE BUILD
         //---------------------------------------------------------------------------------------------------------
         //#IFDEF 'release'
-        //Log.d(TAG, "--> using the RELEASE version of AdRequest <--");
-        //AdRequest adRequest = new AdRequest.Builder().build();
-        //BuildItBiggerApplication.getInstance().trackEvent("adMob", "AdRequest", "RELEASE");
+        Log.d(TAG, "--> using the RELEASE version of AdRequest <--");
+        AdRequest adRequest = new AdRequest.Builder().build();
+        BuildItBiggerApplication.getInstance().trackEvent("adMob", "AdRequest", "RELEASE");
         //#ELSE
-        Log.d(TAG, "--> using the TESTING version of AdRequest <--");
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
-                .addTestDevice(getResources().getString(R.string.test_device))
-                .build();
-        BuildItBiggerApplication.getInstance().trackEvent("adMob", "AdRequest", "TESTING");
+        //Log.d(TAG, "--> using the TESTING version of AdRequest <--");
+        //AdRequest adRequest = new AdRequest.Builder()
+                //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
+                //.addTestDevice(getResources().getString(R.string.test_device))
+                //.build();
+        //BuildItBiggerApplication.getInstance().trackEvent("adMob", "AdRequest", "TESTING");
         //#ENDIF
         //---------------------------------------------------------------------------------------------------------
 

@@ -28,3 +28,7 @@ dependencies {
     // Test dependencies
     testCompile 'junit:junit:4.12'
 }
+
+task wrapper(type: Wrapper) {
+   gradleVersion = '2.12'
+}
